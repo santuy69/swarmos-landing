@@ -1,0 +1,32 @@
+$ hermes --version && echo '---' && cat ~/.agent/wallets/metadata/*.json | jq '{name, address, chain}'
+
+╭──────────────────────────────────────────────────────────────────────────────╮
+│  SwarmOS · Runtime Evidence · Hermes Agent + Agent Wallet                    │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+  Hermes Agent v0.14.0 (2026.5.16)
+  Project: /usr/local/lib/hermes-agent
+  Python:  3.11.15
+  OpenAI SDK: 2.24.0
+
+  ────────────────────────────────────────────────────────────────────────────
+
+  Agent Wallet (EVM):
+    name:    WL/TESNET
+    address: 0xc086A8aacB0BD742c9E7C3499E07e651298A064c
+    chain:   evm
+    storage: encrypted_file
+    created: 2026-05-17T09:56:24Z
+
+  ────────────────────────────────────────────────────────────────────────────
+
+  Active Infrastructure:
+    ✓ SOUL.md constitution loaded
+    ✓ AGENTS.md router active (13 intent patterns)
+    ✓ Memory bridge: persistent cross-session
+    ✓ 100 skills registered, loaded on-demand
+    ✓ Cron scheduler operational
+    ✓ Multi-platform: Telegram, Discord, local
+
+  ────────────────────────────────────────────────────────────────────────────
+  Runtime: self-hosted · Linux 6.8.0 · UTC+8 (SGT)

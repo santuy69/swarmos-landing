@@ -1,0 +1,29 @@
+$ find ~/.hermes/skills -name SKILL.md | wc -l && find ~/.hermes/skills -name SKILL.md | sed 's|.*/skills/||;s|/.*||' | sort | uniq -c | sort -rn
+
+╭──────────────────────────────────────────────────────────────────────────────╮
+│  SwarmOS · Skill Registry · 100 procedural playbooks                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+  Total: 100 skills across 22 categories
+
+  ────────────────────────────────────────────────────────────────────────────
+   COUNT  CATEGORY                  EXAMPLE SKILLS
+  ────────────────────────────────────────────────────────────────────────────
+     19   creative                  claude-design, excalidraw, p5js, manim
+     12   software-development      tdd, debugging, kanban, writing-plans
+     11   productivity              notion, google-workspace, airtable
+      9   mlops                     vllm, llama-cpp, dspy, huggingface
+      6   research                  arxiv, polymarket, osint-investigation
+      6   github                    pr-workflow, code-review, issues
+      6   devops                    watchers, webhooks, linux-hardening
+      5   media                     youtube-content, spotify, gif-search
+      5   crypto                    non-custodial-wallet, web3-recon
+      5   apple                     (platform-specific)
+      4   autonomous-ai-agents      claude-code, codex, hermes-agent
+      2   gaming                    minecraft, pokemon
+      1   automation                cloakbrowser
+      1   social-media              xurl
+  ────────────────────────────────────────────────────────────────────────────
+
+  Skills loaded on-demand per agent turn. Zero cold-start overhead.
+  Each skill: trigger conditions, numbered steps, pitfalls, verification.

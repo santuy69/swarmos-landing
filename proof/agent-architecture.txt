@@ -1,0 +1,35 @@
+$ cat /root/.hermes/skills/*/SKILL.md | grep -c 'trigger\|Trigger' && echo 'skill triggers registered'
+
+╭──────────────────────────────────────────────────────────────────────────────╮
+│  SwarmOS · Agent Architecture · Three Reasoning Paradigms                    │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+  Paradigm 1: Sync Fan-out (delegate_task)
+    Pattern:  spawn N subagents in parallel → collect results → synthesize
+    Use case: independent tasks (recon + deploy simultaneously)
+    Overhead: ~3s setup, parallel execution, single-turn
+
+  Paradigm 2: Async Chain (cron context_from)
+    Pattern:  Job A collects → Job B processes → Job C delivers
+    Use case: pipelines (data → analysis → notification)
+    Overhead: scheduled, cross-job context injection
+
+  Paradigm 3: Recursive Single-turn
+    Pattern:  one LLM turn, 10+ sequential tool calls
+    Use case: complex inline tasks (WL screening, form submission)
+    Overhead: ~2m40s, ~17k tokens, no subagent spawn
+
+  ────────────────────────────────────────────────────────────────────────────
+
+  Skill Dispatch Flow:
+    User message → SOUL.md persona → AGENTS.md intent router
+      → matched skill loaded (skill_view) → execution loop
+      → memory write (if durable) → session log
+
+  ────────────────────────────────────────────────────────────────────────────
+
+  Model Integration:
+    Primary:   MiMo V2.5 — main reasoning backbone
+    Auxiliary: Claude 4.7 — code generation, planning
+    Vision:    Gemini 2.0 Flash — image analysis
+    Embedding: text-embedding-3-small — session search
